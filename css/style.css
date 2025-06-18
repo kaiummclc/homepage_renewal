@@ -1,100 +1,232 @@
 /* --- 全体のスタイル設定 --- */
 :root {
-  --primary-color: #005a9c;
-  --light-gray: #f0f0f0;
-  --gray-text: #555;
-  --border-color: #ddd;
+    --primary-color: #005a9c; /* 落ち着いた青色 */
+    --light-gray: #f0f0f0;
+    --gray-text: #555;
+    --border-color: #ddd;
 }
 
 html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+    scroll-behavior: smooth; /* ページ内リンクをスムーズにスクロールさせる */
+    scroll-padding-top: 80px; /* 固定ヘッダーの高さ分、スクロール位置を調整 */
 }
 
 body {
-  font-family: 'Hiragino Kaku Gothic ProN', Meiryo, Osaka, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #fff;
-  color: #333;
-  line-height: 1.8;
+    font-family: 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, メイリオ, Osaka, 'MS PGothic', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #333;
+    line-height: 1.8;
 }
 
-/* ヘッダー固定 */
+/* --- ヘッダーとナビゲーション --- */
 header {
-  background-color: rgba(255,255,255,0.95);
-  padding: 10px 20px;
-  border-bottom: 1px solid var(--border-color);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 10px 20px;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky; /* スクロールしても上部に固定 */
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(5px); /* 背景を少しぼかす効果 */
 }
 
 nav {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center; /* ボタンを中央に配置 */
+    flex-wrap: wrap; /* 画面が小さい時に折り返す */
+    gap: 10px; /* ボタン間の隙間 */
 }
 
 nav a {
-  text-decoration: none;
-  color: var(--primary-color);
-  padding: 8px 12px;
-  border-radius: 4px;
+    text-decoration: none;
+    color: var(--primary-color);
+    background-color: transparent;
+    padding: 10px 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    font-weight: bold;
+    transition: all 0.3s ease;
 }
 
-/* メインコンテンツ */
+nav a:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* --- メインコンテンツ --- */
 main {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 0 20px;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
 }
 
 section {
-  margin-bottom: 60px;
-  padding-top: 20px;
+    margin-bottom: 60px;
+    padding-top: 20px; /* ヘッダーとの被りを防ぐための余白 */
 }
 
+/* --- ★修正: 画像プレースホルダーのスタイル --- */
 .image-placeholder {
-  width: 100%;
-  aspect-ratio: 16/9;
-  background-color: var(--light-gray);
-  border: 2px dashed #ccc;
-  border-radius: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto 30px;
+    width: 100%;
+    aspect-ratio: 16 / 9; /* 横長の比率を維持 */
+    background-color: #f7f7f7;
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    margin: 0 auto 30px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box; /* paddingとborderをサイズ計算に含める */
 }
 
 .image-placeholder p {
-  color: #888;
-  font-weight: bold;
+    color: #888;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+}
+
+h1, h2, h3, h4 {
+    font-weight: bold;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.2em;
 }
 
 h2 {
-  margin-bottom: 20px;
+    font-size: 1.8em;
+    color: var(--primary-color);
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--primary-color);
+    margin-bottom: 30px;
 }
 
-#back-to-top {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 50px; height: 50px;
-  background-color: var(--primary-color);
-  color: #fff;
-  text-decoration: none;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 50px;
-  font-size: 20px;
-  font-weight: bold;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-  opacity: 0.7;
+h3 {
+    font-size: 1.4em;
+    padding-left: 15px;
+    border-left: 5px solid var(--primary-color);
+    margin-top: 40px;
+    margin-bottom: 20px;
 }
+
+h4 {
+    font-size: 1.1em;
+    color: var(--gray-text);
+    margin-top: 30px;
+}
+
+p, li {
+    font-size: 1em;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+ol > li {
+    margin-bottom: 10px;
+}
+
+ul ul {
+    list-style-type: circle;
+    margin-top: 5px;
+}
+
+.contact-info, .info-box {
+    background-color: var(--light-gray);
+    border-left: 5px solid var(--border-color);
+    padding: 15px 20px;
+    margin: 20px 0;
+    border-radius: 5px;
+}
+
+/* --- テーブルのスタイル --- */
+.table-wrapper {
+    overflow-x: auto; /* スマホで表がはみ出た場合にスクロールさせる */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+
+th, td {
+    border: 1px solid var(--border-color);
+    padding: 12px 15px;
+    text-align: left;
+}
+
+th {
+    background-color: var(--light-gray);
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+td:first-child {
+    font-weight: bold;
+    white-space: nowrap; /* 「川崎」などが改行されないように */
+}
+
+/* --- 右下固定の上に戻るボタン --- */
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0; /* 最初は非表示 */
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+    z-index: 1000;
+}
+
 #back-to-top:hover {
-  opacity: 1;
+    background-color: #004a80; /* ホバー時の色を少し濃く */
+    transform: scale(1.1);
+}
+
+#back-to-top.show {
+    opacity: 1; /* 表示 */
+    visibility: visible;
+}
+
+/* --- 各セクションの最後の上に戻るボタン --- */
+.section-back-to-top {
+    display: block;
+    text-align: center;
+    margin-top: 40px;
+    padding: 10px;
+    background-color: var(--light-gray);
+    text-decoration: none;
+    color: var(--primary-color);
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+.section-back-to-top:hover {
+    background-color: var(--border-color);
 }
