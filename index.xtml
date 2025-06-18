@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>事業内容のご紹介 - 新サイトイメージ</title>
+  <!-- 外部 CSS を読み込む -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header>
+    <!-- ヘッダー／ナビゲーション -->
+    <nav>
+      <a href="#service1">サービス1</a>
+      <a href="#service2">サービス2</a>
+      <a href="#contact">お問い合わせ</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="service1">
+      <h2>サービス1</h2>
+      <div class="image-placeholder">
+        <p>画像プレースホルダー</p>
+      </div>
+      <p>ここに説明文が入ります。</p>
+    </section>
+
+    <section id="service2">
+      <h2>サービス2</h2>
+      <div class="image-placeholder">
+        <p>画像プレースホルダー</p>
+      </div>
+      <p>ここに説明文が入ります。</p>
+    </section>
+
+    <section id="contact">
+      <h2>お問い合わせ</h2>
+      <p>フォームや連絡先情報を掲載します。</p>
+    </section>
+  </main>
+
+  <!-- ページトップへ戻るボタン -->
+  <a href="#" id="back-to-top">↑</a>
+
+  <!-- 外部 JavaScript を読み込む -->
+  <script src="js/script.js"></script>
+</body>
+</html>
