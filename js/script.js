@@ -1,15 +1,17 @@
-// ページトップへ戻るボタンの表示制御
-const backToTop = document.getElementById('back-to-top');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 200) {
-    backToTop.style.display = 'block';
-  } else {
-    backToTop.style.display = 'none';
-  }
-});
+// ページが読み込まれたら実行
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // 「上に戻る」ボタンの要素を取得
+    const backToTopButton = document.getElementById('back-to-top');
 
-// ボタンクリックでトップへスクロール
-backToTop.addEventListener('click', (e) => {
-  e.preventDefault();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+    // スクロールイベントを監視
+    window.addEventListener('scroll', function() {
+        // ページのスクロール量が300pxを超えたらボタンを表示、それ以外は非表示
+        if (window.scrollY > 300) {
+            backToTopButton.classList.add('show');
+        } else {
+            backToTopButton.classList.remove('show');
+        }
+    });
+
 });
