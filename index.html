@@ -3,162 +3,810 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>事業内容のご紹介 - 新サイトイメージ (プレースホルダー版)</title>
-    <!-- 外部CSSファイルを読み込み -->
-    <link rel="stylesheet" href="css/style.css">
+    <title>海上輸送 - 三菱ケミカル物流株式会社</title>
+    <style>
+        /* 全体設定 */
+        body {
+            font-family: 'Yu Gothic', 'Meiryo', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+            font-size: 15px;
+            background-color: #f8f8f8;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* ヘッダー */
+        header {
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo img {
+            height: 40px;
+            vertical-align: middle;
+        }
+
+        .global-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .global-nav li {
+            margin-left: 20px;
+        }
+
+        .global-nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        .global-nav a:hover {
+            color: #0056b3;
+        }
+
+        .header-main-nav {
+            background-color: #0066b3;
+            color: #fff;
+            padding: 0 20px;
+            margin-top: 10px;
+        }
+
+        .header-main-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .header-main-nav li {
+            position: relative;
+        }
+
+        .header-main-nav a {
+            display: block;
+            padding: 12px 20px;
+            text-decoration: none;
+            color: #fff;
+            white-space: nowrap;
+            font-size: 14px;
+            border-right: 1px solid #0056b3;
+        }
+
+        .header-main-nav li:first-child a {
+            border-left: 1px solid #0056b3;
+        }
+
+        .header-main-nav a.active {
+            background-color: #e0e0e0;
+            color: #333;
+        }
+
+        .header-main-nav a:hover {
+            background-color: #0056b3;
+        }
+        
+        /* パンくずリスト */
+        .breadcrumbs {
+            background-color: #f0f0f0;
+            padding: 8px 20px;
+            font-size: 13px;
+            border-bottom: 1px solid #ddd;
+        }
+        .breadcrumbs ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .breadcrumbs li {
+            margin-right: 8px;
+            color: #666;
+        }
+        .breadcrumbs li:not(:last-child)::after {
+            content: ">";
+            margin-left: 8px;
+        }
+        .breadcrumbs a {
+            text-decoration: none;
+            color: #0066b3;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+
+        /* メインコンテンツ */
+        .main-content {
+            padding: 20px 0;
+            background-color: #fff;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #0066b3;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        h1::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #0066b3;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #0066b3;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-left: 5px solid #0066b3;
+            padding-left: 10px;
+        }
+
+        h3 {
+            font-size: 20px;
+            color: #0066b3;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .note {
+            background-color: #e0f0f7;
+            border-left: 5px solid #0066b3;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 14px;
+            color: #333;
+        }
+        .note p {
+            margin: 0;
+        }
+
+        .image-placeholder {
+            background-color: #f0f0f0;
+            color: #999;
+            text-align: center;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px dashed #ccc;
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+        .image-placeholder.large {
+            min-height: 250px;
+        }
+
+        .service-list {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .service-item {
+            width: 30%;
+            min-width: 280px;
+            margin-bottom: 20px;
+            text-align: center;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 20px;
+            box-sizing: border-box;
+            border-radius: 5px;
+        }
+        .service-item h4 {
+            font-size: 18px;
+            color: #0066b3;
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+        .service-item p {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .service-item .image-placeholder {
+            min-height: 100px;
+            margin: 0 0 15px 0;
+        }
+
+        .contact-box {
+            border: 1px solid #0066b3;
+            padding: 20px;
+            margin: 30px 0;
+            background-color: #f7fcff;
+            text-align: center;
+        }
+        .contact-box p {
+            margin-bottom: 10px;
+        }
+        .contact-button {
+            display: inline-block;
+            background-color: #0066b3;
+            color: #fff;
+            padding: 10px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .contact-button:hover {
+            background-color: #0056a3;
+        }
+
+        .shipping-flow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .shipping-flow-item {
+            position: relative;
+            text-align: center;
+            padding: 15px 20px;
+            background-color: #e0f0f7;
+            border: 1px solid #0066b3;
+            border-radius: 5px;
+            margin: 10px;
+            flex-grow: 1;
+            max-width: 200px;
+            min-width: 150px;
+            box-sizing: border-box;
+        }
+        .shipping-flow-item::after {
+            content: "→";
+            position: absolute;
+            right: -25px; /* Adjust to position arrow between boxes */
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: #0066b3;
+            font-weight: bold;
+            display: block; /* Ensure arrow is always visible, adjust media queries for small screens */
+        }
+        .shipping-flow-item:last-child::after {
+            content: none;
+        }
+
+        @media (max-width: 768px) {
+            .shipping-flow-item::after {
+                content: "↓";
+                right: 50%;
+                bottom: -25px;
+                top: auto;
+                transform: translateX(50%);
+            }
+            .shipping-flow-item:last-child::after {
+                content: none;
+            }
+            .shipping-flow {
+                flex-direction: column;
+                align-items: center;
+            }
+            .shipping-flow-item {
+                margin: 10px 0;
+            }
+        }
+
+        .shipping-flow-item strong {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 16px;
+            color: #0066b3;
+        }
+        .shipping-flow-item span {
+            font-size: 13px;
+        }
+
+        .caption {
+            font-size: 13px;
+            text-align: right;
+            margin-top: 10px;
+            color: #666;
+        }
+
+        .shipping-chart {
+            margin: 30px 0;
+            background-color: #f7f7f7;
+            padding: 20px;
+            border-radius: 5px;
+            overflow-x: auto; /* For table responsiveness */
+        }
+        .shipping-chart h4 {
+            text-align: center;
+            font-size: 18px;
+            color: #0066b3;
+            margin-bottom: 20px;
+        }
+        .shipping-chart table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        .shipping-chart th, .shipping-chart td {
+            border: 1px solid #ccc;
+            padding: 8px 12px;
+            text-align: left;
+        }
+        .shipping-chart th {
+            background-color: #0066b3;
+            color: #fff;
+            font-weight: normal;
+        }
+        .shipping-chart tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .shipping-chart td strong {
+            color: #0066b3;
+        }
+        .shipping-chart ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .shipping-chart li {
+            margin-bottom: 5px;
+        }
+
+        .agent-list {
+            margin-top: 30px;
+        }
+        .agent-list h4 {
+            font-size: 18px;
+            color: #0066b3;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .agent-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #eee;
+            background-color: #fcfcfc;
+            border-radius: 5px;
+        }
+        .agent-item strong {
+            flex-shrink: 0;
+            width: 120px;
+            font-weight: bold;
+            color: #0066b3;
+            font-size: 14px;
+        }
+        .agent-item p {
+            margin: 0;
+            flex-grow: 1;
+            font-size: 14px;
+        }
+
+        .product-section {
+            margin-top: 40px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        .product-section p {
+            font-size: 14px;
+        }
+
+        .link-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .link-list li {
+            margin: 5px;
+        }
+        .link-list a {
+            display: block;
+            border: 1px solid #0066b3;
+            color: #0066b3;
+            padding: 8px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+        .link-list a:hover {
+            background-color: #0066b3;
+            color: #fff;
+        }
+
+        /* フッター */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 30px 0;
+            font-size: 13px;
+        }
+        .footer-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .footer-nav li {
+            margin: 0 15px 10px;
+        }
+        .footer-nav a {
+            text-decoration: none;
+            color: #fff;
+        }
+        .footer-nav a:hover {
+            text-decoration: underline;
+        }
+        .copyright {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #aaa;
+        }
+
+        /* レスポンシブ対応 */
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .global-nav ul {
+                flex-wrap: wrap;
+                margin-top: 10px;
+            }
+            .global-nav li {
+                margin: 0 10px 5px 0;
+            }
+            .header-main-nav ul {
+                flex-wrap: wrap;
+            }
+            .header-main-nav li {
+                width: 50%; /* 2列表示 */
+                box-sizing: border-box;
+            }
+            .header-main-nav a {
+                border-right: none;
+                border-bottom: 1px solid #0056b3;
+                text-align: center;
+            }
+            .header-main-nav li:nth-child(even) a {
+                border-left: 1px solid #0056b3;
+            }
+            .header-main-nav li:first-child a {
+                border-left: none;
+            }
+
+            .service-item {
+                width: 100%;
+            }
+
+            .agent-item {
+                flex-direction: column;
+            }
+            .agent-item strong {
+                width: auto;
+                margin-bottom: 5px;
+            }
+            
+            .link-list {
+                flex-direction: column;
+                align-items: center;
+            }
+            .link-list li {
+                width: 90%;
+                margin-bottom: 10px;
+            }
+            .link-list a {
+                width: 100%;
+                text-align: center;
+                box-sizing: border-box;
+            }
+
+            .footer-nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            .footer-nav li {
+                margin: 0 0 10px 0;
+            }
+        }
+    </style>
 </head>
 <body>
-
-    <!-- ヘッダー & ナビゲーション -->
     <header>
-        <nav>
-            <a href="#theme1">海上輸送</a>
-            <a href="#theme2">海運・保険仲立業務</a>
-            <a href="#theme3">船舶代理店業務</a>
-            <a href="#theme4">燃料油販売</a>
+        <div class="header-top container">
+            <div class="logo">
+                <img src="https://www.mclc.co.jp/common/img/common/logo.png" alt="三菱ケミカル物流株式会社">
+            </div>
+            <nav class="global-nav">
+                <ul>
+                    <li><a href="#">サイトマップ</a></li>
+                    <li><a href="#">English</a></li>
+                    <li><a href="#">お問い合わせ</a></li>
+                </ul>
+            </nav>
+        </div>
+        <nav class="header-main-nav">
+            <div class="container">
+                <ul>
+                    <li><a href="#">企業情報</a></li>
+                    <li><a href="#">事業内容</a></li>
+                    <li><a href="#" class="active">海上輸送</a></li>
+                    <li><a href="#">サステナビリティ</a></li>
+                    <li><a href="#">IR・投資家情報</a></li>
+                    <li><a href="#">採用情報</a></li>
+                    <li><a href="#">関連会社</a></li>
+                </ul>
+            </div>
         </nav>
     </header>
 
-    <!-- メインコンテンツ -->
-    <main>
-        <h1>事業内容のご紹介</h1>
-    
-        <!-- テーマ1: 海上輸送 -->
-        <section id="theme1">
-            <h2>海上輸送</h2>
-            <div class="image-placeholder">
-                <p>ここに海上輸送を象徴する画像が入ります</p>
-            </div>
-            
-            <p>当社は石油化学製品を中心に、およそ400万トンの海上輸送を取り扱っています。この豊富な化学品の海上輸送経験により培ったノウハウと輸送管理システムをもとに、船舶の安全運航および高い輸送品質を維持し、お客様へ安全かつ安定的・効率的な国内物流および極東への物流手段として海上輸送を提供しています。</p>
-            <h3>サービス概要</h3>
-            <p>当社ではお客様のニーズにきめ細やかにお応えするために、ケミカルタンカー（内航・外航）、LPGタンカー、特殊タンク船、一般貨物船など多様な船舶を保有・運航しております。</p>
-            <p>「海へのモーダルシフト」で、CO2削減、リードタイム短縮、コスト削減が図れる環境にやさしい高品質な海上輸送サービスを提供いたします。</p>
-            <div class="contact-info">
-                <strong>海上輸送に関するお問い合わせ先はこちら</strong><br>
-                TEL：03-5408-4800　FAX：03-5408-4558<br>
-                （海運事業部）
-            </div>
-            <h3>使用船舶</h3>
-            <p>海上輸送では、社船2隻（タンカー船）、用船13隻（タンカー船10隻・カーゴ船3隻）を使用し、運航しております。<br>詳しい運航船舶リストはこちらをご覧下さい。</p>
-            <h3>海上輸送のRC活動について</h3>
-            <h4>1. RC方針</h4>
+    <div class="breadcrumbs">
+        <div class="container">
             <ul>
-                <li>海運事業部は、全社RC方針及びQHSSE方針に基づいて、お客様と社会から信頼される企業文化の構築を図るため、「質の高い物流サービス」を提供し、「KAITEKI物流」を創造する。</li>
-                <li>安全QAは、物流業務の全てに優先する。</li>
-                <li>環境との調和は、企業としての社会的責任である。</li>
+                <li><a href="#">HOME</a></li>
+                <li>事業内容</li>
+                <li><a href="#">海上輸送</a></li>
             </ul>
-            <p>上記方針に基づき活動を展開しています。</p>
-            <h4>2. RC活動</h4>
-            <ol>
-                <li>運輸安全マネージメント制度に基づき各種安全活動を展開しています。
-                    <ul><li>訪船活動</li><li>ヒヤリハットの収集と活用</li><li>安全情報の提供</li><li>事故トラブル情報収集と水平展開</li><li>事故トラブルの原因究明と対策の立案</li><li>船舶安全会議開催による安全教育</li><li>船主会の安全会議開催、船舶安全協力会への参画による安全対策の推進 など</li></ul>
-                </li>
-                <li>船舶認定制度の運用により安全な船団の編成・管理を実施しています。
-                    <ul><li>船舶管理規程及び推進確認規定の運用による船舶の安全管理</li><li>各種基準類の整備と運用</li></ul>
-                </li>
-                <li>海務監督の配置（鹿島３名、水島２名、坂出１名）
-                    <ul><li>船舶の着桟及び荷役に関する安全監督</li></ul>
-                </li>
-                <li>環境対策
-                    <ul><li>省エネ装置の設置推進</li><li>2030年度のCO2排出削減目標の達成に向けた、船舶からの排出ガス規制の対応</li><li>船舶のリスク低減活動</li></ul>
-                </li>
-                <li>新技術、DX活用による改善</li>
-            </ol>
-            
-            <a href="#" class="section-back-to-top">ページのトップへ戻る</a>
-        </section>
+        </div>
+    </div>
 
-        <!-- テーマ2: 海運・保険仲立業務 -->
-        <section id="theme2">
-            <h2>海運・保険仲立業務</h2>
-            <div class="image-placeholder">
-                <p>ここに仲立業務を象徴する画像が入ります</p>
-            </div>
-            
-            <h3>海運仲立業</h3>
-            <p>海運仲立業務として、主に大口顧客貨物である原料炭、一般炭、製鉄用コークス、石油コークス等の輸送契約締結の媒介として、それに付帯するサービス業務やコンサルタント業務を提供いたします。</p>
-            <p><strong>輸出・輸入航路</strong></p>
-            <h4>【主な取引先】</h4>
-            <p>三菱ケミカル(株)、鹿島北共同発電(株)、ENEOS(株)、三井物産(株)、(株)商船三井、日本郵船(株)、川崎汽船(株)、NSユナイテッド海運(株)、など</p>
-            <h3>保険仲立業</h3>
-            <p>損害保険の保険仲立人として、お客様（保険契約者）と保険会社との間に立ち、お客様にとって最善の保険契約をお勧めするベストアドバイスを提供し、保険契約締結の媒介業務を行っております。</p>
-            <h4>【主な取引先】</h4>
-            <p>東京海上日動火災保険（株）、損害保険ジャパン（株）、三井住友海上火災保険（株）、AIG損害保険(株)</p>
-            <h3>指定紛争解決機関について</h3>
-            <p>当社は保険業法（平成7年法律第105号）の規定に基づき、苦情処理手続き及び紛争解決手続きのための指定紛争解決機関として、一般社団法人保険オンブズマンとの手続き実施基本契約を締結しております。</p>
-            <p>お客様が当社との間で問題を解決できない場合には、解決の申し立てを行うことができます。<br>詳細は下記ホームページをご覧下さい。</p>
-            <div class="info-box">
-                <strong>一般社団法人　保険オンブズマン</strong><br>
-                電話：03-5425-7963<br>
-                （受付時間　土日、休日、年末年始等を除く　午前9時～12時、午後1時～5時）<br>
-                ホームページ ：www.hoken-ombs.or.jp/
-            </div>
-            <h4>「保険オンブズマン」について</h4>
-            <p>一般社団法人保険オンブズマンは、保険の事業者に関する苦情や、お客様と保険の事業者の間のトラブルを、公正・中立、簡易・迅速に解決することを目的に設立された専門機関です。法律の規定に基づき、受け付けた苦情について事業者に解決を依頼するなど、適正な解決に努めるとともに、当事者間でのトラブルを解決できない場合には、消費者相談や法律の専門家などが紛争解決手続きを実施いたします。一般社団法人保険オンブズマンが取り扱う苦情やトラブルの範囲は、保険オンブズマンと契約を締結した事業者の業務に関するものに限られます。現在保険オンブズマンと契約を締結している主な事業者は、外資系損害保険会社と保険仲立人であります。</p>
-            
-            <a href="#" class="section-back-to-top">ページのトップへ戻る</a>
-        </section>
+    <main class="main-content">
+        <div class="container">
+            <h1 class="text-center">海上輸送</h1>
+            <p class="text-center">
+                三菱ケミカル物流は、地球と人、社会の持続可能な発展に貢献するために、グローバルサプライチェーンの中核を担う企業として、最適・安全・確実な物流サービスを提供しています。<br>
+                海上輸送は、その中でも重要な役割を果たしており、長年の実績とノウハウに基づき、お客様の多様なニーズにお応えします。
+            </p>
 
-        <!-- テーマ3: 船舶代理店業務 -->
-        <section id="theme3">
-            <h2>船舶代理店業務</h2>
-            <div class="image-placeholder">
-                <p>ここに船舶代理店を象徴する画像が入ります</p>
-            </div>
-            
-            <p>船舶代理店業務とは、港において船会社の代理として船舶の入出港手続きや船用品の供給など船舶に関する様々なサービスを行います。当社は、お客様の現場と本船及び船舶オペレーターをつなぎ、円滑な海上貨物輸送遂行において重要な役割を担っていることを強く認識し、迅速かつ効率的な作業手配、最新の現地情報提供など、お客様へのサービス向上に日々努力しております。</p>
-            <p>当社では、下記の地区で船舶代理店サービスを提供しております。</p>
-            <h3>船舶代理店業務</h3>
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>地域</th>
-                            <th>営業所名</th>
-                            <th>住所・連絡先</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>川崎</td><td>川崎油槽所油槽管理課</td><td>〒210-0865　神奈川県川崎市川崎区千鳥町1-3<br>TEL:044-288-4698<br>FAX:044-277-1293</td></tr>
-                        <tr><td>尼崎</td><td>尼崎油槽所業務課</td><td>〒660-0843　兵庫県尼崎市東海岸町9番地<br>TEL:06-6409-1521<br>FAX:06-6409-1527</td></tr>
-                        <tr><td>鹿島</td><td>東日本支社茨城事業部生産物流課</td><td>〒314-0102　茨城県神栖市東和田17-1<br>TEL:0299-97-1890<br>FAX:0299-97-1042</td></tr>
-                        <tr><td>四日市</td><td>中日本支社生産物流部（三重）海運課</td><td>〒510-0848　三重県四日市東邦町１番地<br>TEL:059-345-7481<br>FAX:059-345-7482</td></tr>
-                        <tr><td>黒崎</td><td>西日本支社営業部(福岡) 企画グループ(海運)</td><td>〒806-0005　福岡県北九州市八幡西区福岡県舟町6－1<br>TEL:093-643-2800<br>FAX:093-643-2062</td></tr>
-                        <tr><td>坂出</td><td>西日本支社香川事業部海運課</td><td>〒762-0064　香川県坂出市番の州町1番地<br>TEL:0877-46-3649（外航）、7386（内航）<br>FAX:0877-45-5212</td></tr>
-                        <tr><td>水島</td><td>西日本支社生産物流部（岡山）海運課</td><td>〒712-8054　岡山県倉敷市潮通3-10<br>TEL:086-457-3050<br>FAX:086-457-3056</td></tr>
-                    </tbody>
-                </table>
-            </div>
-            
-            <a href="#" class="section-back-to-top">ページのトップへ戻る</a>
-        </section>
-
-        <!-- テーマ4: 燃料油販売 -->
-        <section id="theme4">
-            <h2>燃料油販売</h2>
-            <div class="image-placeholder">
-                <p>ここに燃料油販売を象徴する画像が入ります</p>
+            <div class="section">
+                <h2 id="service">サービス概要</h2>
+                <div class="note">
+                    <p>
+                        ここに海上輸送のサービスに関する補足的な情報が入ります。例えば、各サービスの特徴や、取扱品目、LPガスなどのエネルギー輸送に関する情報、その他特殊な海上輸送サービスなどに関する説明です。<br>
+                        三菱ケミカル物流では、お客様の多様なニーズに対応するため、幅広い種類の船舶と専門知識を活用したサービスを提供しています。
+                    </p>
+                </div>
+                <div class="image-placeholder large">ここに画像が入ります</div>
             </div>
 
-            <p>主に船舶燃料としての重油・潤滑油等、各種石油製品を石油元売、大手代理店及び地場有力販売店を通じ、全国ネットワークで、安定的、安全・確実にかつ廉価にて提供いたします。また、船舶用船具、機材、塗料の調達販売も行います。</p>
-            <h3>【取扱商品】</h3>
-            <ul>
-                <li><strong>船舶向け販売</strong><br>内航船向けの燃料油（A・C重油）、潤滑油、船舶用船具、機材、塗料等</li>
-                <li><strong>陸上輸送機器向け販売</strong><br>軽油等（対応地区：北九州）</li>
-            </ul>
-            <h3>【主な仕入先】</h3>
-            <p>ENEOS(株)・コスモ石油マーケティング(株)・出光リテール販売(株)・丸紅エネルギー(株)・伊藤忠エネクス(株)　等</p>
+            <div class="section">
+                <h2>港湾運送・国際複合一貫輸送に関するお問い合わせはこちら</h2>
+                <div class="contact-box">
+                    <p>ご相談内容に応じて、最適なソリューションをご提案いたします。</p>
+                    <a href="#" class="contact-button">お問い合わせはこちら</a>
+                </div>
+                <p class="caption">※国際複合一貫輸送については、丸紅ロジスティクス(株)、(株)ロジスティックス、三菱倉庫(株)と連携しております。</p>
+            </div>
 
-            <a href="#" class="section-back-to-top">ページのトップへ戻る</a>
-        </section>
+            <div class="section">
+                <h2>復路・復荷中の実績</h2>
+                <p>三菱ケミカル物流の復路・復荷中の実績に関する説明です。具体的な事例や協力体制について記載されます。</p>
+                <div class="image-placeholder">ここに画像が入ります</div>
+            </div>
 
+            <div class="section">
+                <h2>海運仲立業</h2>
+                <p>
+                    海運仲立業に関する説明です。主に日本船主協会に加盟する各船社、一般船、専用船(原油、ナフサ、石油ガス等の輸送専用船)を媒介しており、それに付随するサービスを提供しています。<br>
+                    また、タンカー船（危険物輸送対応）にも対応しています。
+                </p>
+                <div class="image-placeholder large">ここに画像が入ります</div>
+                <p class="caption">※イメージ図です。</p>
+            </div>
+
+            <div class="section">
+                <h2>主な取引先</h2>
+                <div class="shipping-chart">
+                    <h4>主な海上輸送の取引先（例）</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>輸送形態</th>
+                                <th>主な取引先</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>内航船（国内輸送）</td>
+                                <td>三菱ケミカル物流(株)、東北化学薬品(株)、三井物産(株)、(株)鹿島リース、日本郵船(株)、川崎汽船(株)、NSユナイテッド海運(株)など</td>
+                            </tr>
+                            <tr>
+                                <td>国際船（海外輸送）</td>
+                                <td>三菱商事(株)、ENEOS(株)、三井物産(株)、日鉄物産(株)、出光興産(株)、丸紅(株)など</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="note">
+                    <p>
+                        ここに取引先に関する補足的な情報が入ります。<br>
+                        掲載されている企業は一部であり、実際の取引先は多岐にわたります。<br>
+                        具体的な案件や、主要な航路などに関する情報も記載される可能性があります。
+                    </p>
+                </div>
+                <div class="image-placeholder large">ここに画像が入ります</div>
+                <p class="caption">※イメージ図です。</p>
+            </div>
+
+            <div class="section">
+                <h2>傭船契約について</h2>
+                <p>傭船契約に関する説明です。主に定期傭船、裸傭船、航海傭船の3タイプがあります。</p>
+                <div class="shipping-flow">
+                    <div class="shipping-flow-item">
+                        <strong>定期傭船</strong>
+                        <span>期間を定めて船を借りる契約</span>
+                    </div>
+                    <div class="shipping-flow-item">
+                        <strong>裸傭船</strong>
+                        <span>乗組員なしで船を借りる契約</span>
+                    </div>
+                    <div class="shipping-flow-item">
+                        <strong>航海傭船</strong>
+                        <span>特定の貨物を特定の航路で運ぶ契約</span>
+                    </div>
+                </div>
+                <p class="caption">※クリックで契約の詳細に関する情報が表示されます。</p>
+            </div>
+
+            <div class="section">
+                <h2>船舶代理店業務</h2>
+                <p>船舶代理店業務に関する説明です。船舶の入港・出港手続き、貨物の積卸し手配、船員のサポートなど、円滑な港湾活動を支援します。</p>
+                <div class="image-placeholder">ここに画像が入ります</div>
+            </div>
+
+            <div class="section">
+                <h2>船舶代理店業務を委託する主な運航会社</h2>
+                <p>
+                    三菱ケミカル物流は、港湾における船舶の円滑な入出港を支援する船舶代理店業務を行っています。<br>
+                    運航会社との密な連携により、入出港手続き、貨物の積卸し手配、船員の手配などを確実かつ効率的に実施し、お客様のビジネスをサポートします。<br>
+                    特に、三菱ケミカルグループの国際物流においては、重要な役割を担っています。
+                </p>
+                <div class="agent-list">
+                    <h4>主な運航会社（例）</h4>
+                    <div class="agent-item">
+                        <strong>川崎汽船(株)</strong>
+                        <p>川崎マリンポート横浜管理部</p>
+                    </div>
+                    <div class="agent-item">
+                        <strong>日本郵船(株)</strong>
+                        <p>NYK-MSC(株) 神奈川県川崎市川崎区千鳥町1-3</p>
+                    </div>
+                    <div class="agent-item">
+                        <strong>辰巳商会</strong>
+                        <p>辰巳商会(株) 日本郵船大阪港代理店</p>
+                    </div>
+                    <div class="agent-item">
+                        <strong>飯野海運(株)</strong>
+                        <p>飯野海運(株) 日本郵船名古屋港代理店</p>
+                    </div>
+                    <div class="agent-item">
+                        <strong>明和海運(株)</strong>
+                        <p>明和海運(株) 日本郵船神戸代理店</p>
+                    </div>
+                    <div class="agent-item">
+                        <strong>日本郵船九州(株)</strong>
+                        <p>日本郵船九州(株) 日本郵船博多港代理店</p>
+                    </div>
+                    <div class="agent-item">
+                        <strong>日鉄物産(株)</strong>
+                        <p>日鉄物産(株) 日本郵船八幡代理店</p>
+                    </div>
+                    <div class="agent-item">
+                        <strong>四国電力(株)</strong>
+                        <p>四国電力(株) 日本郵船丸亀代理店</p>
+                    </div>
+                    <div class="agent-item">
+                        <strong>旭タンカー(株)</strong>
+                        <p>旭タンカー(株) 日本郵船宇部代理店</p>
+                    </div>
+                    <div class="agent-item">
+                        <strong>共同船舶(株)</strong>
+                        <p>共同船舶(株) 日本郵船名古屋港代理店</p>
+                    </div>
+                </div>
+                <p class="caption">※上記は主な運航会社の一部です。実際の担当会社は案件によって異なります。</p>
+            </div>
+
+            <div class="section product-section">
+                <h2>燃料油販売</h2>
+                <p>
+                    燃料油販売に関する説明です。船舶用燃料油（バンカリング）の供給、価格競争力、品質管理について記載されます。<br>
+                    環境規制に対応した低硫黄燃料油の供給にも対応しています。
+                </p>
+                <div class="image-placeholder">ここに画像が入ります</div>
+                <p class="caption">三菱ケミカル物流による燃料油販売のイメージです。</p>
+            </div>
+
+            <div class="section">
+                <p>
+                    三菱ケミカル物流は、海上輸送、港湾運送、船舶代理店業務、燃料油販売といった複合的なサービスを提供し、<br>
+                    全国ネットワークで、安全・安心・確実な物流サービスをお届けすることで、<br>
+                    お客様のビジネスを力強くサポートいたします。
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>関連事業</h2>
+                <div class="link-list">
+                    <ul>
+                        <li><a href="#">陸上輸送</a></li>
+                        <li><a href="#">倉庫保管</a></li>
+                        <li><a href="#">梱包</a></li>
+                        <li><a href="#">構内・付帯サービス</a></li>
+                        <li><a href="#">タンカー・LPG輸送</a></li>
+                        <li><a href="#">コンテナ輸送</a></li>
+                        <li><a href="#">国際複合一貫輸送</a></li>
+                        <li><a href="#">エネルギー輸送（LNG、LPG、石炭、石油）</a></li>
+                        <li><a href="#">鉄鋼製品輸送</a></li>
+                        <li><a href="#">海上コンテナ輸送</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
     </main>
 
-    <!-- 右下固定の上に戻るボタン -->
-    <a href="#" id="back-to-top" title="ページ上部へ戻る">▲</a>
-
-    <!-- 外部JavaScriptファイルを読み込み -->
-    <script src="js/script.js"></script>
+    <footer>
+        <div class="container">
+            <nav class="footer-nav">
+                <ul>
+                    <li><a href="#">お仕事のご依頼・ご相談</a></li>
+                    <li><a href="#">IR情報</a></li>
+                    <li><a href="#">お問い合わせ</a></li>
+                    <li><a href="#">サイトポリシー</a></li>
+                    <li><a href="#">個人情報保護方針</a></li>
+                    <li><a href="#">ソーシャルメディアポリシー</a></li>
+                </ul>
+            </nav>
+            <div class="copyright">
+                <p>&copy; Mitsubishi Chemical Logistics Corporation All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
